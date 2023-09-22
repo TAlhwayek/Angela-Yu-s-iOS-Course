@@ -9,12 +9,12 @@
 import Foundation
 
 struct StoryBrain {
-    
+    // Keep track of where we are in the story
+    // i.e., index used to traverse the stories array
     var pageNumber = 0
     
-    
+    // Array to store questions, choices, and choice destinations
     let stories = [
-        
         Story(
             title: "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: 'Need a ride, boy?'.",
             choice1: "I'll hop in. Thanks for the help!", choice1Destination: 2,
