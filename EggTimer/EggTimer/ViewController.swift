@@ -11,6 +11,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Timer for counting down
+    // Audio player for playing sound on timer completion
     var timer: Timer?
     var player: AVAudioPlayer?
     // Store time for timer
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
             timerValue = 300
         }
         
+        // Start timer based on which mode the user selected
         timer = Timer.scheduledTimer(timeInterval: timerValue, target: self, selector: #selector(timerFinished), userInfo: nil, repeats: false)
     }
     
@@ -56,5 +59,4 @@ class ViewController: UIViewController {
         timerFinishedAC.addAction(ok)
         present(timerFinishedAC, animated: true)
     }
-    
 }
