@@ -47,16 +47,27 @@ struct StoryBrain {
         )
     ]
     
+    // Returns the current page's title
     func getStoryTitle() -> String {
         return stories[pageNumber].title
     }
     
+    // Returns the current page's choices
     func getChoice1() -> String {
         return stories[pageNumber].choice1
     }
     
     func getChoice2() -> String {
         return stories[pageNumber].choice2
+    }
+    
+    // Updates array index based on button choice
+    mutating func getDestination(button: Int) {
+        if button == 0 {
+            pageNumber = stories[pageNumber].choice1Destination
+        } else if button == 1 {
+            pageNumber = stories[pageNumber].choice2Destination
+        }
     }
     
 }

@@ -9,12 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var choice1Button: UIButton!
     @IBOutlet weak var choice2Button: UIButton!
     
-    let story = StoryBrain()
+    var story = StoryBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +22,18 @@ class ViewController: UIViewController {
         cleanUpUI()
         updateUI()
     }
-
+    
+    // Update question and choices text
     func updateUI() {
         storyLabel.text = story.getStoryTitle()
         choice1Button.setTitle(story.getChoice1(), for: .normal)
         choice2Button.setTitle(story.getChoice2(), for: .normal)
     }
     
+    // Determines next page to show based on which button was pressed
     @IBAction func choiceMade(_ sender: UIButton) {
-        
+        story.getDestination(button: sender.tag)
+        updateUI()
     }
     
     // Simple function to properly align the text
