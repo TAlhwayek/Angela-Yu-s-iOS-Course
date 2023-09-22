@@ -61,12 +61,11 @@ class ViewController: UIViewController {
             sender.backgroundColor = .red
         }
         
+        // Get the next array element (question and answers)
         quizBrain.getNextQuestion()
         
+        // Set a small delay before calling updateUI so that the user can see whether their answer was correct or not
         Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
-    
-    
-    
 }
 
