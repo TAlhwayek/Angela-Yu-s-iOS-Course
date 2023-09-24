@@ -57,6 +57,7 @@ struct StoryBrain {
         return stories[pageNumber].choice1
     }
     
+    // Returns the current page's choices
     func getChoice2() -> String {
         return stories[pageNumber].choice2
     }

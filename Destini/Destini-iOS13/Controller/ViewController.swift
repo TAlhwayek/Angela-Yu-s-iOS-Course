@@ -10,10 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Label connections
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var choice1Button: UIButton!
     @IBOutlet weak var choice2Button: UIButton!
     
+    // Creating an instance of the struct
     var story = StoryBrain()
     
     override func viewDidLoad() {
