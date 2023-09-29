@@ -23,11 +23,19 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // To dismiss the keyboard whenever the user presses anywhere in the view
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    // Dismiss keyboard function
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     
     @IBAction func tipChanged(_ sender: UIButton) {
-        // Dismiss keyboard
+        // Dismiss keyboard when pressing on tip buttons
         totalInput.endEditing(true)
         
         // Deselect all tip buttons
@@ -48,8 +56,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func stepperChanged(_ sender: UIStepper) {
-        // Dismiss keyboard
+        // Dismiss keyboard when changing number of people
         totalInput.endEditing(true)
+        
         // Get value from stepper and update label
         splitLabel.text = "\(Int(sender.value))"
     }
@@ -80,7 +89,6 @@ class MainViewController: UIViewController {
             finalVC.tipPct = "\(tipPct)%"
             present(finalVC, animated: true)
         }
-        
     }
 }
 
