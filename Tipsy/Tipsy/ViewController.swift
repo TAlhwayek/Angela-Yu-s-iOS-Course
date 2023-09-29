@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet var splitLabel: UILabel!
     
+    var tipAmount: Double = 0.1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +39,7 @@ class MainViewController: UIViewController {
         var percent = sender.currentTitle!
         percent = String(percent.dropLast())
         
-        var tipAmount = Float(percent)!
+        tipAmount = Double(percent)!
         tipAmount = tipAmount / 100
     }
     
@@ -49,12 +51,27 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        var total = 0
+        var total = 0.0
+        let split = Double(splitLabel.text!)
         
-        if totalInput.text != nil {
-            total = Int(totalInput.text!)!
+        // Check for empty total amount
+        if totalInput.text != "" {
+            total = Double(totalInput.text!)!
         }
         
+        // Calculate total per person and save as a string
+        let totalPerPerson = String(format: "%.2f", (total + (total * tipAmount)) / split!)
+        print(totalPerPerson)
+        
+        // Present next VC
+        if let finalVC = storyboard?.instantiateViewController(withIdentifier: "FinalVC") as? FinalViewController {
+            finalVC.total = totalPerPerson
+            finalVC.people = Int(split!)
+            var tipPct = String(Int(tipAmount * 100))
+            tipPct = tipPct + "%"
+            finalVC.tipPct = tipPct
+            present(finalVC, animated: true)
+        }
         
     }
 }
