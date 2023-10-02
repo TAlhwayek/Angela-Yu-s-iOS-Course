@@ -30,8 +30,6 @@ class WeatherViewController: UIViewController {
         weatherManager.delegate = self
         searchTextField.delegate = self
         locationManager.delegate = self
-        
-
     }
     
     // When the user presses the location button
@@ -105,6 +103,7 @@ extension WeatherViewController: WeatherManagerDelegate {
 
 //MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
+    // When getting user location is successful
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
@@ -114,7 +113,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         }
     }
 
-    
+    // When there's an error getting the user's location
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
