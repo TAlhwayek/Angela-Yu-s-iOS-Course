@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - CoinManagerDelegate
 extension ViewController: CoinManagerDelegate {
     // Update the labels after completing the api call
     func didUpdatePrice(price: String, currency: String) {
@@ -43,6 +44,7 @@ extension ViewController: CoinManagerDelegate {
     }
 }
 
+//MARK: - UIPickerViewDelegate and UIPickerViewDataSource
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // Specify number of columns
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

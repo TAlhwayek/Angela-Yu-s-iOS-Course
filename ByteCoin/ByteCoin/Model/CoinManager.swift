@@ -32,8 +32,10 @@ struct CoinManager {
                 }
                 
                 if let safeData = data {
+                    // Safely check for data
                     if let bitcoinPrice = self.parseJSON(data: safeData) {
                         let formattedPrice = String(format: "%.2f", bitcoinPrice)
+                        // Send data to main view controller
                         self.delegate?.didUpdatePrice(price: formattedPrice, currency: currency)
                     }
                 }
@@ -51,6 +53,7 @@ struct CoinManager {
             let price = decodedData.rate
             return price
         } catch {
+            // Print error and return nothing
             print(error)
             return nil
         }
