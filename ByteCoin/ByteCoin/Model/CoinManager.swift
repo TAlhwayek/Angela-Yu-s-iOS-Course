@@ -49,7 +49,6 @@ struct CoinManager {
             let decodedData = try decoder.decode(CoinData.self, from: data)
             // Save price
             let price = decodedData.rate
-            print(price)
             return price
         } catch {
             print(error)

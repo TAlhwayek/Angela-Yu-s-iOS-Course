@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CoinManagerDelegate {
+class ViewController: UIViewController {
 
     
     var coinManager = CoinManager()
@@ -24,8 +24,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         coinManager.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
+        
+        // Get price on app launch
+        coinManager.getCoinPrice(for: "USD")
     }
-    
+}
+
+extension ViewController: CoinManagerDelegate {
     // Update the labels after completing the api call
     func didUpdatePrice(price: String, currency: String) {
         DispatchQueue.main.async {
@@ -37,9 +42,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func didFailWithError(error: Error) {
         print("Error: \(error.localizedDescription)")
     }
-    
-    
-    
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // Specify number of columns
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -59,6 +64,5 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let selectedCurrency = coinManager.currencyArray[row]
         coinManager.getCoinPrice(for: selectedCurrency)
     }
-    
 }
 
