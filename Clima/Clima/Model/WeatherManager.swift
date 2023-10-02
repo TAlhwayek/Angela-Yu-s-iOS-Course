@@ -18,11 +18,21 @@ struct WeatherManager {
     
     var delegate: WeatherManagerDelegate?
     
+    // If user searched for a location
+    // Get weather data using the city's name
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
         performRequest(with: urlString)
     }
     
+    // If user gave location permissions
+    // Get weather data using their latitude and longitude
+    func fetchWeather(latitude: Double, longitude: Double) {
+        let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
+        performRequest(with: urlString)
+    }
+    
+    // Perform request using city name
     func performRequest(with urlString: String) {
         // 1. Create a URL
         if let url = URL(string: urlString) {
@@ -47,6 +57,7 @@ struct WeatherManager {
         }
     }
     
+    // Parse the API request's returned data
     func parseJSON(_ weatherData: Data) -> WeatherModel? {
         let decoder = JSONDecoder()
         

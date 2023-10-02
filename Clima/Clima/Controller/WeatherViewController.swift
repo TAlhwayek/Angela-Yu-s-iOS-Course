@@ -6,6 +6,7 @@
 //  Copyright © 2019 App Brewery. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 class WeatherViewController: UIViewController {
@@ -17,16 +18,29 @@ class WeatherViewController: UIViewController {
     @IBOutlet var searchTextField: UITextField!
     
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Get location
+        locationManager.requestLocation()
+        
+        // Assign delegates
         weatherManager.delegate = self
         searchTextField.delegate = self
+        locationManager.delegate = self
+        
+
     }
     
-
-    
+    // When the user presses the location button
+    @IBAction func locationButtonTapped(_ sender: UIButton) {
+        // Request location permission from user
+        locationManager.requestWhenInUseAuthorization()
+        // Get location
+        locationManager.requestLocation()
+    }
 }
 
 //MARK: - UITextFieldDelegate
@@ -85,6 +99,23 @@ extension WeatherViewController: WeatherManagerDelegate {
     
     // When an error occurs
     func didFailWithError(error: Error) {
+        print(error)
+    }
+}
+
+//MARK: - CLLocationManagerDelegate
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(latitude: lat, longitude: lon)
+        }
+    }
+
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
 }
