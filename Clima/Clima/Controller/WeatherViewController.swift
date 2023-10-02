@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+class WeatherViewController: UIViewController {
     
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -25,6 +25,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         searchTextField.delegate = self
     }
     
+
+    
+}
+
+//MARK: - UITextFieldDelegate
+
+// Moved everything dealing with TextFieldDelegate down here
+// Makes the code look cleaner
+extension WeatherViewController: UITextFieldDelegate {
     // When search button (near search bar) is pressed
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
@@ -59,10 +68,23 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         // Clear search bar after search
         searchTextField.text = ""
     }
-    
-    func didUpdateWeather(weather: WeatherModel) {
-        print(weather.temperatureString)
-    }
-    
 }
 
+//MARK: - WeatherManagerDelegate
+// Weather Manager extension
+extension WeatherViewController: WeatherManagerDelegate {
+    // Whenever the API call finishes successfully
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        DispatchQueue.main.async {
+            // Update UI with data from API call
+            self.temperatureLabel.text = weather.temperatureString
+            self.cityLabel.text = weather.cityName
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+        }
+    }
+    
+    // When an error occurs
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}
