@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Flash_Chat_iOS13VersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Flash_Chat_iOS13VersionString[];
+FOUNDATION_EXPORT double Pods_Flash_ChatVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Flash_ChatVersionString[];
 

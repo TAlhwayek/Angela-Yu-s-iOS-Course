@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A900DA3F4D75939CD1871D9BBCE2CC3"
-               BuildableName = "Pods_Flash_Chat_iOS13.framework"
-               BlueprintName = "Pods-Flash Chat iOS13"
+               BlueprintIdentifier = "FCCD0387C3AE55C52DF94AA3742BBBED"
+               BuildableName = "Pods_Flash_Chat.framework"
+               BlueprintName = "Pods-Flash-Chat"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
