@@ -6,7 +6,7 @@
 //  Copyright © 2019 Angela Yu. All rights reserved.
 //
 
-import Firebase
+import FirebaseCore
 import UIKit
 
 @UIApplicationMain
@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        // Needed for firebase config
         FirebaseApp.configure()
-        
         return true
     }
 
