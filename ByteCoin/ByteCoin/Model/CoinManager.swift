@@ -17,6 +17,7 @@ struct CoinManager {
     
     let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC"
     let apiKey = Keys.apiKey
+    // Fixed array to display most common currency in the beginning
     let currencyArray = ["USD","EUR","GBP", "AUD", "BRL","CAD","CNY","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","ZAR"]
     
     var delegate: CoinManagerDelegate?
