@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyB7WttlB0fNuaLBbWl2y7zxHMsG1vPEYtM</string>
+	<string>AIzaSyBhcW5YoTqH1ROhd9rF6sftqBUSdDmgL6w</string>
 	<key>GCM_SENDER_ID</key>
-	<string>234234956026</string>
+	<string>122143239263</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>co.talhwayek.Flash-Chat</string>
 	<key>PROJECT_ID</key>
-	<string>flashchat-fdf03</string>
+	<string>flashchat-dd0d7</string>
 	<key>STORAGE_BUCKET</key>
-	<string>flashchat-fdf03.appspot.com</string>
+	<string>flashchat-dd0d7.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:234234956026:ios:7fda25ca36171c78daa143</string>
+	<string>1:122143239263:ios:865a0db2c2031608313fea</string>
 </dict>
 </plist>
