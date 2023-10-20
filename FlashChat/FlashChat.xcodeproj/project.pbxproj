@@ -45,6 +45,7 @@
 		9B3D0D452ADA4E7600EE0584 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3D0D442ADA4E7600EE0584 /* FirebaseStorage */; };
 		9B3D0D472ADA4E7600EE0584 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9B3D0D462ADA4E7600EE0584 /* FirebaseStorageCombine-Community */; };
 		9B9426302AE25BB50047048D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B94262F2AE25BB50047048D /* Constants.swift */; };
+		9B9426322AE25DFB0047048D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9426312AE25DFB0047048D /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		0B628190235DF01B00E35CAF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		9B3D0D0F2ADA4B3D00EE0584 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B94262F2AE25BB50047048D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B9426312AE25DFB0047048D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = FlashChat/Message.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		0B628194235DF03A00E35CAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9B9426312AE25DFB0047048D /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				0B628179235DEE8100E35CAF /* SceneDelegate.swift in Sources */,
 				0B62818F235DF01000E35CAF /* LoginViewController.swift in Sources */,
 				9B9426302AE25BB50047048D /* Constants.swift in Sources */,
+				9B9426322AE25DFB0047048D /* Message.swift in Sources */,
 				0B628191235DF01B00E35CAF /* ChatViewController.swift in Sources */,
 				0B62818D235DF00B00E35CAF /* RegisterViewController.swift in Sources */,
 			);
