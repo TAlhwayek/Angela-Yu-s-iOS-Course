@@ -18,7 +18,7 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "⚡️FlashChat"
+        title = K.appName
         // Add a logout button
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutUser))
         // Hide back button because it feels useless in a chat app like this
