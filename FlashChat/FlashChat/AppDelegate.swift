@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         // Remove toolbar associated with IQKM
         IQKeyboardManager.shared.enableAutoToolbar = false
+        // Hides keyboard when user taps outside keyboard
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         return true
     }
 
