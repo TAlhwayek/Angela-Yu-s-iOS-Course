@@ -40,7 +40,6 @@ class ChatViewController: UIViewController {
     }
     
     func loadMessages() {
-        
         db.collection(K.FStore.collectionName)
             // Sort by date to organize messages in order that they were sent
             .order(by: K.FStore.dateField)
@@ -82,7 +81,7 @@ class ChatViewController: UIViewController {
                 if let e = error {
                     print("There was an issue saving data to firestore, \(e)")
                 } else {
-                    print("Data saved")
+                    // print("Data saved")
                     // Clear text box on send
                     self.messageTextfield.text = ""
                 }

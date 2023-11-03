@@ -8,6 +8,7 @@
 
 import FirebaseCore
 import FirebaseFirestore
+import IQKeyboardManagerSwift
 import UIKit
 
 @UIApplicationMain
@@ -18,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // Needed for firebase db
         let db = Firestore.firestore()
+        // Enable IQKeyboardManager
+        // This fixes the issue where the keyboard blocks the message box
+        IQKeyboardManager.shared.enable = true
+        // Remove toolbar associated with IQKM
+        IQKeyboardManager.shared.enableAutoToolbar = false
         return true
     }
 
