@@ -18,13 +18,13 @@ class MessageCell: UITableViewCell {
         super.awakeFromNib()
         
         // Give bubbles rounded corners
-        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
+        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+
     }
     
 }

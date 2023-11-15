@@ -62,6 +62,9 @@ class ChatViewController: UIViewController {
                             // Reload table to show new messages
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
+                                // Scroll to bottom of table view when a new message enter the table view
+                                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
                             }
                         }
                     }
